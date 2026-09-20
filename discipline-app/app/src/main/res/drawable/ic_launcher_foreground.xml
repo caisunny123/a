@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Checkmark -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M46,73 L30,57 L37,50 L46,59 L71,34 L78,41 Z" />
+    <!-- Flame tip above the check -->
+    <path
+        android:fillColor="#FDE68A"
+        android:pathData="M54,18 C50,24 48,27 48,31 C48,34 50,37 53,37 L55,37 C58,37 60,34 60,31 C60,27 58,24 54,18 Z" />
+</vector>
