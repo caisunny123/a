@@ -51,8 +51,8 @@ object WeeklyReportBuilder {
 
         val withTasks = stats.filter { it.totalTasks > 0 }
         fun line(s: DayStatEntity) = "${DateUtil.dayLabel(s.date)}（${s.completedTasks}/${s.totalTasks}）"
-        val bestDay = withTasks.maxByOrNull { it.completedTasks.toFloat() / it.totalTasks }?.let(line)
-        val worstDay = withTasks.minByOrNull { it.completedTasks.toFloat() / it.totalTasks }?.let(line)
+        val bestDay = withTasks.maxByOrNull { it.completedTasks.toFloat() / it.totalTasks }?.let(:line)
+        val worstDay = withTasks.minByOrNull { it.completedTasks.toFloat() / it.totalTasks }?.let(:line)
 
         val completions = db.completionDao().range(start, end)
         val tasks = db.taskDao().getAllOnce().filter { it.dailyRecurring }
