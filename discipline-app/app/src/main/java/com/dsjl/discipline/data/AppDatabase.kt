@@ -155,14 +155,4 @@ abstract class AppDatabase : RoomDatabase() {
                     .build().also { instance = it }
             }
     }
-
-        fun get(context: Context): AppDatabase =
-            instance ?: synchronized(this) {
-                instance ?: Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "discipline.db"
-                ).addMigrations(MIGRATION_1_2).build().also { instance = it }
-            }
-    }
 }
