@@ -1,9 +1,11 @@
+@file:OptIn(ExperimentalFoundationApi::class)
 package com.dsjl.discipline.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +25,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.outlined.ArrowDropDown
 import androidx.compose.material.icons.outlined.Delete
@@ -355,7 +358,7 @@ private fun TaskRow(
             }
             IconButton(onClick = onEdit, modifier = Modifier.size(32.dp)) {
                 Icon(
-                    imageVector = androidx.compose.material.icons.outlined.Edit,
+                    imageVector = Icons.Filled.Edit,
                     contentDescription = "编辑",
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(20.dp)
@@ -400,10 +403,10 @@ private fun TaskDialog(
                     modifier = Modifier.fillMaxWidth()
                 )
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Box {
+                    Box(modifier = Modifier.weight(1f)) {
                         OutlinedButton(
                             onClick = { catMenuOpen = true },
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(category)
                             Spacer(Modifier.width(4.dp))
