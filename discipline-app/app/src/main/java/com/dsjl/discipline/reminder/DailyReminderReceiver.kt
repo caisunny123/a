@@ -24,7 +24,7 @@ class DailyReminderReceiver : BroadcastReceiver() {
             .setContentText("看看今日 AI 建议和任务清单，逐条完成它们吧！")
             .setAutoCancel(true)
             .setContentIntent(contentIntent)
-            .setVibrate(true)
+            .setVibrate(longArrayOf(0L, 300L, 200L, 300L))
             .build()
 
         try {
