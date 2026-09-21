@@ -144,19 +144,17 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var instance: AppDatabase? = null
 
-        val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
-                    "CREATE TABLE IF NOT EXISTS `weekly_reports` (" +
-                        "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                        "`weekStart` TEXT NOT NULL, " +
-                        "`weekEnd` TEXT NOT NULL, " +
-                        "`generatedAt` INTEGER NOT NULL, " +
-                        "`content` TEXT NOT NULL, " +
-                        "`fromAi` INTEGER NOT NULL)"
+        fun get(context: Context): AppDatabase =
+            instance ?: synchronized(this) {
+                instance ?: Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "discipline.db"
                 )
+                    .fallbackToDestructiveMigration()
+                    .build().also { instance = it }
             }
-        }
+    }
 
         fun get(context: Context): AppDatabase =
             instance ?: synchronized(this) {
