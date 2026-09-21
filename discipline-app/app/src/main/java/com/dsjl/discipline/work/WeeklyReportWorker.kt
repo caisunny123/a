@@ -81,7 +81,7 @@ class WeeklyReportWorker(
             )
             .setAutoCancel(true)
             .setContentIntent(contentIntent)
-            .setVibrate(longArrayOf(0L, 300L, 200L, 300L))）
+            .setVibrate(longArrayOf(0L, 300L, 200L, 300L))
             .build()
         try {
             NotificationManagerCompat.from(context).notify(1002, notification)
